@@ -38,6 +38,7 @@ dev_dependencies:
   json_serializable: ^6.6.1
   chopper_generator: ^6.0.0
   riverpod_generator: ^2.2.3
+  build_runner: ^2.3.3
 
 flutter:
 
