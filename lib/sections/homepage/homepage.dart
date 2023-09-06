@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:noteapp/sections/add_notes/add_notes.dart';
-import 'package:noteapp/sections/homepage/data_model.dart';
+import 'package:noteapp/model/data_model.dart';
 import 'package:noteapp/sections/homepage/widget/app_drawer.dart';
 import 'package:noteapp/sections/homepage/widget/h_soace.dart';
 import 'package:noteapp/sections/homepage/widget/header.dart';
