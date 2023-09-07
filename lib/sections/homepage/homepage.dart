@@ -152,7 +152,6 @@ class Homepage extends StatelessWidget {
             SizedBox(
               height: 250.h,
               child: ListView.builder(
-                  // TODO make this list dynamic
                   itemCount: noteModel().length,
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
@@ -265,7 +264,7 @@ class Homepage extends StatelessWidget {
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '),
       NoteModel(
           id: 1,
-          title: 'Datle',
+          title: 'Todos',
           description:
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. '),
       NoteModel(
