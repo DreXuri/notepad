@@ -16,8 +16,8 @@ class AppDrawer extends StatelessWidget {
           top: 200.h,
           left: 50.w,
         ),
-        child: Column(
-          children: const [
+        child: const Column(
+          children: [
             RowList(
               icon: Icons.note,
               text: 'All Notes',
