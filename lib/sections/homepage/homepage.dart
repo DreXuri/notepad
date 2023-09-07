@@ -103,7 +103,6 @@ class Homepage extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                               
                                 ],
                               ),
                               const HSpace(),
@@ -112,6 +111,7 @@ class Homepage extends StatelessWidget {
                                 textAlign: TextAlign.start,
                                 fontWeight: FontWeight.w400,
                                 fontSize: 11.sp,
+                                height: 13 / 11.sp,
                                 color: kTextBlack,
                               ),
                               Align(
