@@ -21,7 +21,7 @@ class RowList extends StatelessWidget {
       onTap: onTap,
       child: Row(
         children: [
-          Icon(icon),
+          Icon(icon, size: 14),
           vSpace(width: 4.w),
           CustomText(
             data: text,
