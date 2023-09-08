@@ -49,197 +49,199 @@ class Homepage extends StatelessWidget {
       drawer: const AppDrawer(),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 10.w, horizontal: 20.h),
-        child: Column(
-          children: [
-            const Header(
-              text: 'PINNED NOTES',
-            ),
-            // Drawer(),
-            SizedBox(
-              height: 250.h,
-              child: ListView.builder(
-                  // TODO make this list dynamic
-                  itemCount: noteModel().length,
-                  scrollDirection: Axis.vertical,
-                  itemBuilder: (context, index) {
-                    return Card(
-                      child: Container(
-                        height: 120.h,
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(10.r),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 5.w, horizontal: 15.h),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  CustomText(
-                                    data: noteModel()[index].title,
-                                    textAlign: TextAlign.start,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 14.sp,
-                                    color: kTextBlack,
-                                  ),
-                                  PopupMenuButton(
-                                    child: const Icon(Icons.more_horiz),
-                                    itemBuilder: (context) => [
-                                      const PopupMenuItem(
-                                        child: RowList(
-                                          icon: Icons.favorite,
-                                          text: 'Favourite',
-                                        ),
-                                      ),
-                                      const PopupMenuItem(
-                                        child: RowList(
-                                          icon: Icons.delete,
-                                          text: 'Delete',
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              const HSpace(),
-                              CustomText(
-                                data: noteModel()[index].description,
-                                textAlign: TextAlign.start,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 11.sp,
-                                height: 13 / 11.sp,
-                                color: kTextBlack,
-                              ),
-                              Align(
-                                alignment: Alignment.bottomRight,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    CustomText(
-                                      data:
-                                          '${date.toString().substring(10, 16)} | ',
-                                      textAlign: TextAlign.start,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 11.sp,
-                                      color: kTextBlack,
-                                    ),
-                                    CustomText(
-                                      data: date.toString().substring(0, 10),
-                                      textAlign: TextAlign.start,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 11.sp,
-                                      color: kTextBlack,
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const Header(
+                text: 'PINNED NOTES',
+              ),
+              // Drawer(),
+              SizedBox(
+                height: 250.h,
+                child: ListView.builder(
+                    // TODO make this list dynamic
+                    itemCount: noteModel().length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        child: Container(
+                          height: 120.h,
+                          decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(10.r),
                           ),
-                        ),
-                      ),
-                    );
-                  }),
-            ),
-
-            const Header(
-              text: 'OTHER NOTES',
-            ),
-
-            SizedBox(
-              height: 250.h,
-              child: ListView.builder(
-                  itemCount: noteModel().length,
-                  scrollDirection: Axis.vertical,
-                  itemBuilder: (context, index) {
-                    return Card(
-                      child: Container(
-                        height: 120.h,
-                        decoration: BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.circular(10.r),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 5.w, horizontal: 15.h),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  CustomText(
-                                    data: noteModel()[index].title,
-                                    textAlign: TextAlign.start,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 14.sp,
-                                    color: kTextBlack,
-                                  ),
-                                  PopupMenuButton(
-                                    child: const Icon(Icons.more_horiz),
-                                    itemBuilder: (context) => [
-                                      const PopupMenuItem(
-                                        child: RowList(
-                                          icon: Icons.favorite,
-                                          text: 'Favourite',
-                                        ),
-                                      ),
-                                      const PopupMenuItem(
-                                        child: RowList(
-                                          icon: Icons.delete,
-                                          text: 'Delete',
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              const HSpace(),
-                              CustomText(
-                                data: noteModel()[index].description,
-                                textAlign: TextAlign.start,
-                                fontWeight: FontWeight.w400,
-                                fontSize: 11.sp,
-                                color: kTextBlack,
-                              ),
-                              Align(
-                                alignment: Alignment.bottomRight,
-                                child: Row(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 5.w, horizontal: 15.h),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    CustomText(
-                                      data: date.toString().substring(10, 16),
-                                      textAlign: TextAlign.start,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 11.sp,
-                                      color: kTextBlack,
-                                    ),
-                                    Divider(
-                                      height: 10.h,
-                                      thickness: 2.w,
-                                      color: kBlack,
-                                    ),
                                     CustomText(
                                       data: noteModel()[index].title,
                                       textAlign: TextAlign.start,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 11.sp,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 14.sp,
                                       color: kTextBlack,
+                                    ),
+                                    PopupMenuButton(
+                                      child: const Icon(Icons.more_horiz),
+                                      itemBuilder: (context) => [
+                                        const PopupMenuItem(
+                                          child: RowList(
+                                            icon: Icons.favorite,
+                                            text: 'Favourite',
+                                          ),
+                                        ),
+                                        const PopupMenuItem(
+                                          child: RowList(
+                                            icon: Icons.delete,
+                                            text: 'Delete',
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),
-                              )
-                            ],
+                                const HSpace(),
+                                CustomText(
+                                  data: noteModel()[index].description,
+                                  textAlign: TextAlign.start,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 11.sp,
+                                  height: 13 / 11.sp,
+                                  color: kTextBlack,
+                                ),
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      CustomText(
+                                        data:
+                                            '${date.toString().substring(10, 16)} | ',
+                                        textAlign: TextAlign.start,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 11.sp,
+                                        color: kTextBlack,
+                                      ),
+                                      CustomText(
+                                        data: date.toString().substring(0, 10),
+                                        textAlign: TextAlign.start,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 11.sp,
+                                        color: kTextBlack,
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    );
-                  }),
-            ),
-          ],
+                      );
+                    }),
+              ),
+
+              const Header(
+                text: 'OTHER NOTES',
+              ),
+
+              SizedBox(
+                height: 250.h,
+                child: ListView.builder(
+                    itemCount: noteModel().length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        child: Container(
+                          height: 120.h,
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 5.w, horizontal: 15.h),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    CustomText(
+                                      data: noteModel()[index].title,
+                                      textAlign: TextAlign.start,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 14.sp,
+                                      color: kTextBlack,
+                                    ),
+                                    PopupMenuButton(
+                                      child: const Icon(Icons.more_horiz),
+                                      itemBuilder: (context) => [
+                                        const PopupMenuItem(
+                                          child: RowList(
+                                            icon: Icons.favorite,
+                                            text: 'Favourite',
+                                          ),
+                                        ),
+                                        const PopupMenuItem(
+                                          child: RowList(
+                                            icon: Icons.delete,
+                                            text: 'Delete',
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                const HSpace(),
+                                CustomText(
+                                  data: noteModel()[index].description,
+                                  textAlign: TextAlign.start,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 11.sp,
+                                  color: kTextBlack,
+                                ),
+                                Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Row(
+                                    children: [
+                                      CustomText(
+                                        data: date.toString().substring(10, 16),
+                                        textAlign: TextAlign.start,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 11.sp,
+                                        color: kTextBlack,
+                                      ),
+                                      Divider(
+                                        height: 10.h,
+                                        thickness: 2.w,
+                                        color: kBlack,
+                                      ),
+                                      CustomText(
+                                        data: noteModel()[index].title,
+                                        textAlign: TextAlign.start,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 11.sp,
+                                        color: kTextBlack,
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
