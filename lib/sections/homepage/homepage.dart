@@ -59,7 +59,7 @@ class Homepage extends StatelessWidget {
               SizedBox(
                 height: 250.h,
                 child: ListView.builder(
-                    // TODO make this list dynamic
+                    // TODO make this list color dynamic
                     itemCount: noteModel().length,
                     scrollDirection: Axis.vertical,
                     itemBuilder: (context, index) {

@@ -22,7 +22,7 @@ class RowList extends StatelessWidget {
       child: Row(
         children: [
           Icon(icon),
-          const vSpace(),
+          vSpace(width: 4.w),
           CustomText(
             data: text,
             textAlign: TextAlign.start,
